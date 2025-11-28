@@ -6,65 +6,40 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:36:25 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 16:44:19 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 19:05:14 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libftprintf.h"
+
+int	ft_strchr(const char *s, char c)
+{
+	while (*s)
+	{
+		if (*s == c)
+			return (1);
+		s++;
+	}
+	return (0);
+}
 
 void	print(const char *str, va_list args, int *i, int *count)
 {
 	if (str[*i] == 'c')
-	{
-		int	chr;
-		chr = va_arg(args, int);
-        ft_putchar(chr);
-		count++;
-		(*i) += 1;
-	}
+		print_c(args, count);
 	else if (str[*i] == 's')
-	{
-		char *chr;
-		chr = va_arg(args, char *);
-		ft_putstr(chr, count);
-		count++;
-		(*i) += 1;
-	}
-	/*
+		print_s(args, count);
 	else if (str[*i] == 'p')
-	{
-    	void *ptr;
-		ptr = va_arg(arg)
-	}
-	*/
+		print_p(args, count);
 	else if (str[*i] == 'd' || str[*i] == 'i')
-	{
-		int	nbr;
-		nbr = va_arg(args, int);
-        ft_putnbr_base(nbr, "0123456789", count);
-		(*i) += 1;
-	}
+		print_d(args, count);
 	else if (str[*i] == 'u')
-	{
-		unsigned int	nbr;
-		nbr = va_arg(args, int);
-        ft_putnbr_base_unsigned(nbr, "0123456789", count);
-		(*i) += 1;
-	}
+		print_u(args, count);
 	else if (str[*i] == 'x')
-	{
-		int	nbr;
-		nbr = va_arg(args, int);
-        ft_putnbr_base(nbr, "0123456789abcdef", count);
-		(*i) += 1;
-	}
+		print_x(args, count);
 	else if (str[*i] == 'X')
-	{
-		int	nbr;
-		nbr = va_arg(args, int);
-        ft_putnbr_base(nbr, "0123456789ABCDEF", count);
-		(*i) += 1;
-	}
+		print_x_maj(args, count);
+	(*i) += 1;
 }
 
 int	ft_printf(const char *buff, ...)
@@ -88,7 +63,6 @@ int	ft_printf(const char *buff, ...)
 				continue ;
 			}
 			i++;
-			count++;
 			if (ft_strchr("cspdiuxX", buff[i]))
 			{
 				print(buff, args, &i, &count);
@@ -105,7 +79,13 @@ int	ft_printf(const char *buff, ...)
 }
 int	main(void)
 {
-	ft_printf("hello %c \n", '5');
+	unsigned int x;
+	x = -10;
+	//printf("numft %d \n",ft_printf("tgbytbbbbbbbbbbbbbbbbbbbbbbb"));
+	//printf("numre %d \n",printf("tgbytbbbbbbbbbbbbbbbbbbbbbbb"));
+	printf(" %d",ft_printf("%d",x));
+	printf("\n");
+	printf(" %d",printf("%d",x));
 	//printf("--ft : %d \n",ft_printf("%%"));
 	//printf("--re : %d \n",printf("%%"));
 	/*printf("%u",(unsigned int)42);

@@ -2,9 +2,9 @@
 NAME = libftprintf.a
 
 CC 	= cc
-CFLAGS = -Wall -Wextra -Werror -MMD -MP
+CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c utils.c
+SRC = ft_printf.c display_utils.c percent_utils.c percent_utils2.c
 
 OBJ = $(SRC:.c=.o)
 DEP = $(SRC:.c=.d)
@@ -15,7 +15,7 @@ $(NAME): $(OBJ)
 		ar -rcs $(NAME) $(OBJ)
 
 %.o: %.c
-		$(CC) $(CFLAGS) -I. -c $< -o $@
+		$(CC) $(CFLAGS) -MMD -MP -I. -c $< -o $@
 
 clean:
 		rm -f $(OBJ) $(DEP)
@@ -37,6 +37,7 @@ git:
 
 test:
 		$(CC) $(CFLAGS) $(SRC)
+		./a.out
 
 -include $(DEP)
 

@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 20:48:31 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/27 20:49:41 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 19:05:21 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "libftprintf.h"
 
-int	ft_strchr(const char *s, char c)
-{
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
-}
 
 void	ft_putchar(char c)
 {
@@ -50,6 +40,7 @@ void	ft_putnbr_base(int nbr, char *base, int *count)
 	if (n < 0)
 	{
 		ft_putchar('-');
+		(*count)++;
 		n *= -1;
 	}
 	i = 0;
@@ -64,7 +55,7 @@ void	ft_putnbr_base(int nbr, char *base, int *count)
 		ft_putchar(box[i]);
 }
 
-void	ft_putnbr_base_unsigned(unsigned int nbr, char *base, int *count)
+void	ft_putnbr_base_unsigned(unsigned long nbr, char *base, int *count)
 {
 	char	box[32];
 	int		size;
@@ -74,6 +65,7 @@ void	ft_putnbr_base_unsigned(unsigned int nbr, char *base, int *count)
 	if (nbr < 0)
 	{
 		ft_putchar('-');
+		(*count)++;
 		nbr *= -1;
 	}
 	i = 0;
@@ -94,10 +86,8 @@ void	ft_putstr(char *str, int *count)
 
 	i = 0;
 
-	// While the string doesn't reach the null
 	while (str[i] != '\0')
 	{
-		// Each Char passed by the index "i" will be printed
 		write(1, &str[i], 1);
 		(*count)++;
 		i++;
