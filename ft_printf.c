@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:36:25 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/27 20:51:10 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 16:44:19 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	ft_printf(const char *buff, ...)
 }
 int	main(void)
 {
-	//ft_printf("hello %c \n", '5');
+	ft_printf("hello %c \n", '5');
 	//printf("--ft : %d \n",ft_printf("%%"));
 	//printf("--re : %d \n",printf("%%"));
 	/*printf("%u",(unsigned int)42);
