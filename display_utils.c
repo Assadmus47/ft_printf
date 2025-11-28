@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 20:48:31 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 20:02:18 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:27:41 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_putnbr_base(int nbr, char *base, int *count)
 
 	size = ft_strlen(base);
 	n = nbr;
+	//printf("\nwe [%d]\n",nbr);
 	if (n < 0)
 	{
 		ft_putchar('-');
