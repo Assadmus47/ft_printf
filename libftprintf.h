@@ -6,17 +6,17 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:41:21 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:06:36 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 19:11:29 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stddef.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stddef.h>
 
 int		ft_strchr(const char *s, char c);
 void	ft_putnbr_base(int nbr, char *base, int *count);

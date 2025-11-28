@@ -6,12 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 20:48:31 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:05:21 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 19:08:06 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
 
 void	ft_putchar(char c)
 {
@@ -85,7 +84,6 @@ void	ft_putstr(char *str, int *count)
 	int	i;
 
 	i = 0;
-
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);

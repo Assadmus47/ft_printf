@@ -6,22 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:36:25 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:05:14 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 19:16:33 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int	ft_strchr(const char *s, char c)
-{
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
-}
 
 void	print(const char *str, va_list args, int *i, int *count)
 {
@@ -44,7 +33,7 @@ void	print(const char *str, va_list args, int *i, int *count)
 
 int	ft_printf(const char *buff, ...)
 {
-	va_list 	args;
+	va_list		args;
 	int			i;
 	int			count;
 
@@ -59,7 +48,7 @@ int	ft_printf(const char *buff, ...)
 			{
 				putchar('%');
 				count++;
-				i+=2;
+				i += 2;
 				continue ;
 			}
 			i++;
@@ -75,21 +64,4 @@ int	ft_printf(const char *buff, ...)
 		}
 	}
 	return (count);
-
-}
-int	main(void)
-{
-	unsigned int x;
-	x = -10;
-	//printf("numft %d \n",ft_printf("tgbytbbbbbbbbbbbbbbbbbbbbbbb"));
-	//printf("numre %d \n",printf("tgbytbbbbbbbbbbbbbbbbbbbbbbb"));
-	printf(" %d",ft_printf("%d",x));
-	printf("\n");
-	printf(" %d",printf("%d",x));
-	//printf("--ft : %d \n",ft_printf("%%"));
-	//printf("--re : %d \n",printf("%%"));
-	/*printf("%u",(unsigned int)42);
-	printf("\n");
-	ft_printf("%u",(unsigned int)42);*/
-	//ft_printf("%%%%c",'o');
 }
