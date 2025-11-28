@@ -13,5 +13,10 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <stddef.h>
 
-char	*ft_strchr(const char *s, int c);
+int		ft_strchr(const char *s, char c);
+void	ft_putnbr_base(int nbr, char *base, int *count);
+void	ft_putnbr_base_unsigned(unsigned int nbr, char *base, int *count);
+void	ft_putchar(char c);
+void	ft_putstr(char *str, int *count);
