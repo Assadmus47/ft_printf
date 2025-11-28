@@ -6,11 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 20:48:31 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:08:06 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:02:18 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {

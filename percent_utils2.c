@@ -6,11 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 19:00:51 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:16:27 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:08:10 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	print_x(va_list args, int *count)
 {
@@ -37,4 +37,47 @@ int	ft_strchr(const char *s, char c)
 		s++;
 	}
 	return (0);
+}
+
+void	print_menu(const char *str, va_list args, int *i, int *count)
+{
+	if (str[*i] == 'c')
+		print_c(args, count);
+	else if (str[*i] == 's')
+		print_s(args, count);
+	else if (str[*i] == 'p')
+		print_p(args, count);
+	else if (str[*i] == 'd' || str[*i] == 'i')
+		print_d(args, count);
+	else if (str[*i] == 'u')
+		print_u(args, count);
+	else if (str[*i] == 'x')
+		print_x(args, count);
+	else if (str[*i] == 'X')
+		print_x_maj(args, count);
+	(*i) += 1;
+}
+
+void	display_char(va_list args, const char *buff, int *i, int*count)
+{
+	if (buff[(*i)] == '%')
+	{
+		if (buff[(*i) + 1] == '%')
+		{
+			putchar('%');
+			count++;
+			(*i) += 2;
+			return ;
+		}
+		(*i)++;
+		if (ft_strchr("cspdiuxX", buff[(*i)]))
+		{
+			print_menu(buff, args, i, count);
+		}
+	}
+	else
+	{
+		write(1, &buff[(*i)++], 1);
+		count++;
+	}
 }

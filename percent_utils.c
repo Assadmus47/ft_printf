@@ -6,11 +6,11 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:40:05 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 19:10:05 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:02:03 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	print_c(va_list args, int *count)
 {
