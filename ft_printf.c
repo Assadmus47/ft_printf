@@ -38,5 +38,13 @@ int main(void)
 	printf("re [");
 	count = printf(" %s", "");
 	printf("]\n count = %d", count);*/
-	ft_printf(" wee [%d] cc", 0);
+	int c;
+	unsigned int	nbr;
+	nbr = -42;
+	c = ft_printf("FT : %p",&nbr);
+	printf("\n ft count : %d \n",c);
+	printf("\n");
+	c = printf("RE : %p",&nbr);
+	printf("\n RE count : %d \n",c);
+	//ft_printf(" wee [%d] cc", 0);
 }

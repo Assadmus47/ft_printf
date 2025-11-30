@@ -44,9 +44,9 @@ void	ft_putnbr_base(int nbr, char *base, int *count)
 		ft_putchar(box[i]);
 }
 
-void	ft_putnbr_base_unsigned(unsigned long nbr, char *base, int *count)
+void	ft_putnbr_base_unsigned(uintptr_t nbr, char *base, int *count)
 {
-	char	box[32];
+	char	box[64];
 	int		size;
 	int		i;
 
@@ -96,5 +96,19 @@ void	ft_putnbr(int nb, int *count)
 	{
 		ft_putnbr(n / 10, count);
 		ft_putnbr(n % 10, count);
+	}
+}
+
+void	ft_putnbr_unsigned(unsigned long nb, int *count)
+{
+	if (nb <= 9)
+	{
+		ft_putchar(nb + '0');
+		(*count)++;
+	}
+	else
+	{
+		ft_putnbr_unsigned(nb / 10, count);
+		ft_putnbr_unsigned(nb % 10, count);
 	}
 }

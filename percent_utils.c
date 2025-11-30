@@ -31,12 +31,18 @@ void	print_s(va_list args, int *count)
 
 void	print_p(va_list args, int *count)
 {
-	unsigned long	ptr;
+	void	*ptr;
 
-	ptr = va_arg(args, unsigned long);
+	ptr = va_arg(args, void *);
+	if (!ptr)
+	{
+		write(1, "(nil)", 5);
+		(*count) += 5;
+		return;
+	}
 	write(1, "0x", 2);
 	(*count) += 2;
-	ft_putnbr_base_unsigned((unsigned long)ptr, "0123456789abcdef", count);
+	ft_putnbr_base_unsigned((uintptr_t)ptr, "0123456789abcdef", count);
 }
 
 void	print_d(va_list args, int *count)
@@ -52,5 +58,5 @@ void	print_u(va_list args, int *count)
 	unsigned int	nbr;
 
 	nbr = va_arg(args, int);
-	ft_putnbr_base_unsigned(nbr, "0123456789", count);
+	ft_putnbr_unsigned(nbr, count);
 }
