@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 00:59:52 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/30 15:06:54 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/30 20:53:26 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ void	print_menu(const char *str, va_list args, int *i, int *count)
 	(*i) += 1;
 }
 
+void	option_notfound(const char *buff, int *i, int *count)
+{
+	(*count)--;
+	if (buff[(*i) + 1])
+	{
+		(*i) += 2;
+		ft_putchar('%');
+		ft_putchar(buff[(*i) - 1]);
+		(*count)++;
+	}
+	else
+		(*i)++;
+}
+
 void	display_char(va_list args, const char *buff, int *i, int*count)
 {
 	if (buff[(*i)] == '%')
@@ -65,9 +79,9 @@ void	display_char(va_list args, const char *buff, int *i, int*count)
 		}
 		(*i)++;
 		if (ft_strchr("cspdiuxX", buff[(*i)]))
-		{
 			print_menu(buff, args, i, count);
-		}
+		else
+			option_notfound(buff, i, count);
 	}
 	else
 	{
