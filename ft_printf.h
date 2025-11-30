@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:41:21 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 20:14:40 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/30 15:44:08 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 int		ft_strchr(const char *s, char c);
 int		ft_printf(const char *buff, ...);
-void	ft_putnbr_base(int nbr, char *base, int *count);
-void	ft_putnbr_base_unsigned(uintptr_t nbr, char *base, int *count);
+void	ft_putnbr_base(unsigned int nbr, char *base, int *count);
+void	ft_putnbr_base_unsigned(unsigned long nbr, char *base, int *count);
 void	ft_putchar(char c);
 void	ft_putstr(char *str, int *count);
 void	print_c(va_list args, int *count);

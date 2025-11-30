@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 18:40:05 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/11/28 20:02:03 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/11/30 15:55:32 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void	print_s(va_list args, int *count)
 	char	*chr;
 
 	chr = va_arg(args, char *);
+	if (!chr)
+	{
+		write(1, "(null)", 6);
+		(*count) += 6;
+		return ;
+	}
 	ft_putstr(chr, count);
 }
 
@@ -38,11 +44,11 @@ void	print_p(va_list args, int *count)
 	{
 		write(1, "(nil)", 5);
 		(*count) += 5;
-		return;
+		return ;
 	}
 	write(1, "0x", 2);
 	(*count) += 2;
-	ft_putnbr_base_unsigned((uintptr_t)ptr, "0123456789abcdef", count);
+	ft_putnbr_base_unsigned((unsigned long)ptr, "0123456789abcdef", count);
 }
 
 void	print_d(va_list args, int *count)

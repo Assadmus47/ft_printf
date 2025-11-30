@@ -37,7 +37,7 @@ git:
 
 test:
 		$(CC) $(CFLAGS) $(SRC)
-		./a.exe
+		./a.out
 
 -include $(DEP)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 00:59:52 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/30 00:59:52 by marvin           ###   ########.fr       */
+/*   Updated: 2025/11/30 15:06:54 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	display_char(va_list args, const char *buff, int *i, int*count)
 		if (buff[(*i) + 1] == '%')
 		{
 			putchar('%');
-			count++;
+			(*count)++;
 			(*i) += 2;
 			return ;
 		}
@@ -72,6 +72,6 @@ void	display_char(va_list args, const char *buff, int *i, int*count)
 	else
 	{
 		write(1, &buff[(*i)++], 1);
-		count++;
+		(*count)++;
 	}
 }
