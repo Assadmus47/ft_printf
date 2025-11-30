@@ -33,5 +33,7 @@ void	print_x(va_list args, int *count);
 void	print_x_maj(va_list args, int *count);
 void	display_char(va_list args, const char *buff, int *i, int*count);
 void	print(const char *str, va_list args, int *i, int *count);
+void	ft_putnbr(int nb, int *count);
+int		ft_strlen(char *str);
 
 #endif

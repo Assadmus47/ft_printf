@@ -44,7 +44,7 @@ void	print_d(va_list args, int *count)
 	int	nbr;
 
 	nbr = va_arg(args, int);
-	ft_putnbr_base(nbr, "0123456789", count);
+	ft_putnbr(nbr, count);
 }
 
 void	print_u(va_list args, int *count)

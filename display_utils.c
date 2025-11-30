@@ -17,16 +17,6 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
-
 void	ft_putnbr_base(int nbr, char *base, int *count)
 {
 	char	box[32];
@@ -36,7 +26,6 @@ void	ft_putnbr_base(int nbr, char *base, int *count)
 
 	size = ft_strlen(base);
 	n = nbr;
-	//printf("\nwe [%d]\n",nbr);
 	if (n < 0)
 	{
 		ft_putchar('-');
@@ -62,12 +51,6 @@ void	ft_putnbr_base_unsigned(unsigned long nbr, char *base, int *count)
 	int		i;
 
 	size = ft_strlen(base);
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		(*count)++;
-		nbr *= -1;
-	}
 	i = 0;
 	while (nbr > 0)
 	{
@@ -90,5 +73,28 @@ void	ft_putstr(char *str, int *count)
 		write(1, &str[i], 1);
 		(*count)++;
 		i++;
+	}
+}
+
+void	ft_putnbr(int nb, int *count)
+{
+	long int	n;
+
+	n = nb;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		(*count)++;
+		n *= -1;
+	}
+	if (n >= 0 && n <= 9)
+	{
+		ft_putchar(n + '0');
+		(*count)++;
+	}
+	if (n > 9)
+	{
+		ft_putnbr(n / 10, count);
+		ft_putnbr(n % 10, count);
 	}
 }

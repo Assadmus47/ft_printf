@@ -4,7 +4,7 @@ NAME = libftprintf.a
 CC 	= cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c display_utils.c percent_utils.c percent_utils2.c
+SRC = ft_printf.c display_utils.c percent_utils.c percent_utils2.c general_utils.c
 
 OBJ = $(SRC:.c=.o)
 DEP = $(SRC:.c=.d)
@@ -37,7 +37,7 @@ git:
 
 test:
 		$(CC) $(CFLAGS) $(SRC)
-		./a.out
+		./a.exe
 
 -include $(DEP)
 
