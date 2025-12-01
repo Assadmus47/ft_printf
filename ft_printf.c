@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 19:36:25 by mkacemi           #+#    #+#             */
-/*   Updated: 2025/12/01 13:35:01 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/12/01 15:39:47 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	ft_printf(const char *buff, ...)
 
 	if (write(1, "", 0) == -1)
 		return (-1);
+	if (!buff)
+		return (-1);
 	count = 0;
 	va_start(args, buff);
 	i = 0;
 	while (buff[i])
-	{
 		display_char(args, buff, &i, &count);
-	}
 	va_end(args);
 	return (count);
 }
