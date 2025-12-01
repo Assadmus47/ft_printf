@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 00:59:52 by marvin            #+#    #+#             */
-/*   Updated: 2025/11/30 20:53:26 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/12/01 12:07:15 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	display_char(va_list args, const char *buff, int *i, int*count)
 	{
 		if (buff[(*i) + 1] == '%')
 		{
-			putchar('%');
+			ft_putchar('%');
 			(*count)++;
 			(*i) += 2;
 			return ;
