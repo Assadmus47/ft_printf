@@ -6,7 +6,7 @@
 /*   By: mkacemi <mkacemi@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 00:59:52 by marvin            #+#    #+#             */
-/*   Updated: 2025/12/01 12:07:15 by mkacemi          ###   ########.fr       */
+/*   Updated: 2025/12/01 13:35:14 by mkacemi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_strchr(const char *s, char c)
 	return (0);
 }
 
-void	print_menu(const char *str, va_list args, int *i, int *count)
+static void	print_menu(const char *str, va_list args, int *i, int *count)
 {
 	if (str[*i] == 'c')
 		print_c(args, count);
@@ -60,7 +60,7 @@ void	option_notfound(const char *buff, int *i, int *count)
 		(*i) += 2;
 		ft_putchar('%');
 		ft_putchar(buff[(*i) - 1]);
-		(*count)++;
+		(*count) += 3;
 	}
 	else
 		(*i)++;
@@ -68,7 +68,9 @@ void	option_notfound(const char *buff, int *i, int *count)
 
 void	display_char(va_list args, const char *buff, int *i, int*count)
 {
-	if (buff[(*i)] == '%')
+	if (buff[(*i)] == '%' && buff[(*i) + 1] == '\0')
+		option_notfound(buff, i, count);
+	else if (buff[(*i)] == '%')
 	{
 		if (buff[(*i) + 1] == '%')
 		{
